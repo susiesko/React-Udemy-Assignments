@@ -14,15 +14,11 @@ class App extends Component {
   };
 
   switchNameHandler = () => {
-    console.log('test');
-
-    // let tempState = {};
-    // Object.assign(tempState, this.state);
-
-    // tempState.persons[0].name = 'Susie';
-    // tempState.persons[0].age = 34;
-
-    // this.setState(tempState);
+    this.setState({persons: [
+      { name: 'Max', age: 28 },
+      { name: 'Manu', age: 29 },
+      { name: 'Stephanie', age: 27 }
+    ]});
   };
 
   render() {
