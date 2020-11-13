@@ -15,13 +15,14 @@ class App extends Component {
 
   switchNameHandler = () => {
     console.log('test');
+
     // let tempState = {};
     // Object.assign(tempState, this.state);
 
     // tempState.persons[0].name = 'Susie';
     // tempState.persons[0].age = 34;
 
-    // this.setState(this.state);
+    // this.setState(tempState);
   };
 
   render() {
