@@ -1,10 +1,72 @@
 import React, { Component } from 'react';
 import './App.css';
-import person from './Person/Person';
 
-import Person from './Person/Person'
+import Person from './Person/Person';
+
+import UserInput from './Section3Assignment/UserInput/UserInput';
+import UserOutput from './Section3Assignment/UserOutput/UserOutput';
 
 class App extends Component {
+  state = {
+    usernames: [
+      'Susie',
+      'Dana',
+      'Zelda',
+      'Kohana',
+    ]
+  };
+
+  userInputChange = (event) => {
+    console.log(event);
+    this.setState(
+      {
+        usernames: [
+          event.target.value,
+          event.target.value,
+          event.target.value,
+          event.target.value,
+        ]          
+      }          
+    )
+  };
+
+  render() {
+    const style = {
+      backgroundColor: '#CCC',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      borderRadius: '5px',
+      cursor: 'pointer'
+    };
+    
+    return (
+      <div className="App">
+        <h1>Hi, I'm a React App</h1>
+        <p>This is really working!</p>
+        <UserInput inputChanged={this.userInputChange}/>
+        <UserOutput 
+          username={this.state.usernames[0]} 
+          content="This is the first UserOutput component."
+        />
+        <UserOutput 
+          username={this.state.usernames[1]} 
+          content="This is the second UserOutput component."
+        />
+        <UserOutput 
+          username={this.state.usernames[2]} 
+          content="This is the third UserOutput component."
+        />
+        <UserOutput 
+          username={this.state.usernames[3]} 
+          content="This is the fourth UserOutput component."
+        />
+      </div>
+    );
+  }
+}
+
+/* class App extends Component {
   state = {
     persons: [
       { name: 'Max', age: 28 },
@@ -30,11 +92,22 @@ class App extends Component {
   };
 
   render() {
+    const style = {
+      backgroundColor: '#CCC',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      borderRadius: '5px',
+      cursor: 'pointer'
+    };
+    
     return (
       <div className="App">
         <h1>Hi, I'm a React App</h1>
         <p>This is really working!</p>
-        <button onClick={ () => this.switchNameHandler('Maximilian!!') }>Switch Name</button>
+        <button 
+          style={style}
+          onClick={ () => this.switchNameHandler('Maximilian!!') }>Switch Name</button>
         <Person 
           name={this.state.persons[0].name} 
           age={this.state.persons[0].age} />
@@ -49,11 +122,10 @@ class App extends Component {
         </Person>
         <Person 
           name={this.state.persons[2].name} 
-          age={this.state.persons[2].age} />
+          age={this.state.persons[2].age} />        
       </div>
     );
-    //return React.createElement('div', { className: 'App'}, React.createElement('h1', null, 'Hi, I\'m a React App!!!'));
   }
-}
+} */
 
 export default App;
