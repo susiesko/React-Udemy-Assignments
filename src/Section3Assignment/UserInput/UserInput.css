@@ -1,8 +1,9 @@
 .UserInput {
     padding:20px;
-    border:1px solid #CCC;
     width:40%;
+    background-color:rgb(221, 136, 255);
+    border:2px solid rgb(4, 63, 151);
+    border-radius: 10px;
+    box-shadow:5px 5px 10px rgb(112, 204, 240);
     margin:20px auto;
-    border-radius: 5px;
-    box-shadow:5px 5px 5px #DDD;
 }

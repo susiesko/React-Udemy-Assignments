@@ -1,8 +1,9 @@
 .UserOutput {
     padding:20px;
-    border:1px solid #CCC;
     width:50%;
+    background-color:rgb(238, 173, 213);
+    border:2px solid rgb(4, 63, 151);
+    border-radius: 10px;
+    box-shadow:5px 5px 10px rgb(112, 204, 240);
     margin:20px auto;
-    border-radius: 5px;
-    box-shadow:5px 5px 5px #DDD;
 }
