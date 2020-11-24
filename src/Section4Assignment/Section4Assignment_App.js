@@ -16,33 +16,35 @@ class App extends Component {
     this.setState({ inputValue: event.target.value })
   };
 
-  characterClicked = (charIndex) => {
-    let inputValue = this.state.inputValue;
-    inputValue = inputValue.slice(0, charIndex) + inputValue.slice(charIndex + 1);
-    this.setState( {inputValue: inputValue} );
+  deleteChar = (charIndex) => {
+    // let inputValue = this.state.inputValue;
+    // inputValue = inputValue.slice(0, charIndex) + inputValue.slice(charIndex + 1);    
+    let inputValueArry = this.state.inputValue.split('');
+    inputValueArry.splice(charIndex, 1);
+    let updatedText = inputValueArry.join('');
+    this.setState( {inputValue: updatedText} );
   }
 
   render() {
-    let charComponents = (
-      <p>No input entered</p>
-    );
-
-    charComponents = this.state.inputValue.split('').map((c, index) => {
+    let charList = this.state.inputValue.split('').map((c, index) => {
       return (
         <Char 
           key={index}
           character={c}
-          charClicked={() => this.characterClicked(index)}
+          charClicked={() => this.deleteChar(index)}
         />
       );
     });
 
     return (
       <div className="App">
-        <input type="text" value={this.state.inputValue} onChange={this.inputChanged}/>
-        <p>{this.state.inputValue.length}</p>
+        <input 
+          type="text" 
+          value={this.state.inputValue} 
+          onChange={this.inputChanged}/>
+        <p>{this.state.inputValue}</p>
         <Validation textInputLength={this.state.inputValue.length}/>
-        {charComponents}
+        {charList}
       </div>
     );
   }
