@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Radium from 'radium';
 import Person from './Person/Person';
 
 class App extends Component {
@@ -32,12 +33,6 @@ class App extends Component {
 
     person.name = event.target.value;
     this.setState({ persons: persons });
-
-    /* this.setState({persons: [
-      { id: 'asdf1', name: 'Max', age: 28 },
-      { id: 'asdf2', name: event.target.value, age: 29 },
-      { id: 'asdf3', name: 'Stephanie', age: 27 }
-    ]}); */
   };
 
   deletePersonHandler = (personIndex) => {
@@ -59,7 +54,11 @@ class App extends Component {
       border: '1px solid blue',
       padding: '8px',
       borderRadius: '5px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black'
+      }
     };
 
     let persons = null;
@@ -81,6 +80,10 @@ class App extends Component {
       );
       
       style.backgroundColor = 'darkred';
+      style[':hover'] = {
+        backgroundColor: 'salmon',
+        color: 'black'
+      }
     }
 
     const classes = [];
@@ -105,4 +108,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);
