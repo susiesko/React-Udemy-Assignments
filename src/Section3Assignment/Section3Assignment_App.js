@@ -4,7 +4,7 @@ import './App.css';
 import UserInput from './Section3Assignment/UserInput/UserInput';
 import UserOutput from './Section3Assignment/UserOutput/UserOutput';
 
-class Section3Assignment_App extends Component {
+class App extends Component {
   state = {
       username: 'Susie'
   }
@@ -13,16 +13,7 @@ class Section3Assignment_App extends Component {
     this.setState({ username: event.target.value });
   };
 
-  render() {
-    const style = {
-      backgroundColor: '#CCC',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      borderRadius: '5px',
-      cursor: 'pointer'
-    };
-    
+  render() {    
     return (
       <div className="App">
         <h1>Hi, I'm a React App</h1>
@@ -52,4 +43,4 @@ class Section3Assignment_App extends Component {
   }
 }
 
-export default Section3Assignment_App;
+export default App;

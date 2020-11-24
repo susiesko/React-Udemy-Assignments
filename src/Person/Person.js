@@ -1,9 +1,9 @@
 import React from 'react';
 import './Person.css';
 
-const randomNumber = () => {
-    return Math.floor(Math.random() * 30);
-};
+// const randomNumber = () => {
+//     return Math.floor(Math.random() * 30);
+// };
 
 const person = (props) => {
     return (
