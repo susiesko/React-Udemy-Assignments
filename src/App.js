@@ -27,10 +27,11 @@ class App extends Component {
     });
 
     const person = { ...this.state.persons[personIndex] };
+    person.name = event.target.value;
+
     const persons = [ ...this.state.persons ];
     persons[personIndex] = person;
 
-    person.name = event.target.value;
     this.setState({ persons: persons });
   };
 
