@@ -6,15 +6,26 @@ const Cockpit = ( props ) => {
       console.log('[Cockpit.js] useEffect');
       // use for http request... etc
       setTimeout(() => {
-        alert('saved data to cloud!');
+        //alert('saved data to cloud!');
       }, 1000);
+
+      return () => {
+        console.log('[Cockpit.js] cleanup work in useEffect');
+      };
     }, 
     // this only runs when props.persons is updated.
-    [props.persons]
+    //[props.persons]
     // this only runs when component renders the first time
-    //[]
-  ); 
+    []
+  );
 
+  useEffect(() => {
+    console.log('[Cockpit.js] 2nd useEffect');
+
+    return () => {
+      console.log('[Cockpit.js] cleanup work in 2nd useEffect');
+    };
+  })
 
   const assignedClasses = [];
 
