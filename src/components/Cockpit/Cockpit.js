@@ -3,9 +3,18 @@ import classes from './Cockpit.module.css'
 
 const Cockpit = ( props ) => {
   useEffect(() => {
-    console.log('[Cockpit.js] useEffect');
-    // use for http request... etc
-  });
+      console.log('[Cockpit.js] useEffect');
+      // use for http request... etc
+      setTimeout(() => {
+        alert('saved data to cloud!');
+      }, 1000);
+    }, 
+    // this only runs when props.persons is updated.
+    [props.persons]
+    // this only runs when component renders the first time
+    //[]
+  ); 
+
 
   const assignedClasses = [];
 
