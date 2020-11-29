@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-
-import Person from './Person/Person'
+import Person from './Person/Person';
 
 class Persons extends PureComponent {
   state = {
@@ -52,8 +51,7 @@ class Persons extends PureComponent {
                 name={person.name}
                 age={person.age}
                 click={() => this.props.clicked(index)}
-                changed={(event) => this.props.changed(event, person.id)}
-                isAuth={this.props.isAuthenticated}/>
+                changed={(event) => this.props.changed(event, person.id)}/>
             );
           })
         }     
