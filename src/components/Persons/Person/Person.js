@@ -6,41 +6,13 @@ import withClass from '../../../hoc/withClass';
 import classes from './Person.module.css';
 
 class Person extends Component {
-  state = {
-
-  };
-
-  constructor(props){
+  constructor(props) {
     super(props);
-    console.log('[Person.js] constructor');
+    this.inputElementRef = React.createRef();
   }
-
-  // componentWillReceiveProps(props){
-  //   console.log('[Person.js] componentWillReceiveProps');    
-  // }
-
-  static getDerivedStateFromProps(props, state){
-    console.log('[Person.js] getDerivedStateFromProps');
-    return state;
-  }
-
-  shouldComponentUpdate(nextProps, nextState){
-    console.log('[Person.js] shouldComponentUpdate');
-    return true;
-  }
-
-  getSnapshotBeforeUpdate(prevProps, prevState){
-    console.log('[Person.js] getSnapshotBeforeUpdate');
-    return {message: 'Snapshot!'};
-  }
-
-  // componentWillUpdate() {
-  //   console.log('[Person.js] componentWillUpdate');    
-  // }
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log('[Person.js] componentDidUpdate');
-    console.log(snapshot);
+  
+  componentDidMount(){
+    this.inputElementRef.current.focus();
   }
 
   render() {
@@ -52,8 +24,9 @@ class Person extends Component {
           I'm {this.props.name} and I am {this.props.age} years old!
         </p>
         <p key="i2">{this.props.children}</p>
-        <input 
+        <input
           key="i3"
+          ref={this.inputElementRef}
           type="text" 
           onChange={this.props.changed} 
           value={this.props.name}
