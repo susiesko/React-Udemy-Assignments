@@ -10,7 +10,6 @@ axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
 axios.defaults.headers.post['Content-Type'] = 'application/json'; // this is the default value but we are including it for demonstration's sake
 
 axios.interceptors.request.use(request => {
-  console.log(request);
   // Edit request config
   return request;
 }, error => {
@@ -19,7 +18,6 @@ axios.interceptors.request.use(request => {
 });
 
 axios.interceptors.response.use(response => {
-  console.log(response);
   // Edit response config
   return response;
 }, error => {
