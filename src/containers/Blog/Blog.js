@@ -36,6 +36,7 @@ class Blog extends Component {
         <Route path="/" exact component={Posts} />
         {/* {Route path="/post:id"} */}
         <Route path="/new-post" exact component={NewPost} />
+        <Route path="/:id" exact component={FullPost}/>
         {/* localhost:3000 => posts component */}
         {/* <Posts/> */}
         {/* <section>
