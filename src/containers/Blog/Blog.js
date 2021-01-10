@@ -21,7 +21,7 @@ class Blog extends Component {
                 activeStyle={{
                   color: '#af00bd',
                   textDecoration: 'underline'
-                }}>Home
+                }}>Posts
               </NavLink></li>
               <li><NavLink 
                 to={{
