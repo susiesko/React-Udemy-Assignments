@@ -26,7 +26,9 @@ class NewPost extends Component {
       axios.post('/posts/', data)
         .then(response => {
           console.log('postDataHandler response', response);
-          this.setState({ submitted: true });
+          //this.props.history.push('/posts'); // could also use the history to redirect instead of loading a Redirect component. This adds to the stack though so you can go back to the new order page. 
+          this.props.history.replace('/posts'); // use replace to not go back to form.
+          //this.setState({ submitted: true });
         });
     }
 
