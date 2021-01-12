@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'; // Suspense component for 16.6 react lazy loading
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 
 import './Blog.css';
@@ -11,6 +11,15 @@ import asyncComponent from '../../hoc/asyncComponent';
 const AsyncNewPost = asyncComponent(() => {
   return import('./NewPost/NewPost');
 });
+
+/* 
+
+with react 16.6:
+
+const NewPost = React.lazy(() => import('./NewPost/NewPost'));
+
+
+*/
 
 
 class Blog extends Component {
@@ -50,6 +59,7 @@ class Blog extends Component {
 {/*           <Redirect from="/" to="/posts" /> */}
           {/* <Route path="/" component={Posts} /> */}
         </Switch>
+        {/* <Route path="/new-post" render={() => { <Suspense fallback={<div>Loading...</div>}><NewPost/></Suspense> }} */  /* for lazy loading in React 16.6 */}
         {/* localhost:3000 => posts component */}
         {/* <Posts/> */}
         {/* <section>
