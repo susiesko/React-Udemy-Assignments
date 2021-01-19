@@ -10,10 +10,10 @@ const reducer = (state = initialState, action) => {
     return { ...state, counter: state.counter - 1 };
   }
   if (action.type === 'ADD'){
-    return { ...state, counter: state.counter + action.value };
+    return { ...state, counter: state.counter + action.val };
   }
   if (action.type === 'SUBTRACT'){
-    return { ...state, counter: state.counter - action.value };
+    return { ...state, counter: state.counter - action.val };
   }
 
   return state; 
