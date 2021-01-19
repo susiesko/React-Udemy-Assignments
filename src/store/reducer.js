@@ -23,9 +23,6 @@ const reducer = (state = initialState, action) => {
       };
     }
     case ('DELETE_RESULT'): {
-      // let results = [...state.results];
-      // results.splice(action.index, 1);
-
       let results = state.results.filter(cur => cur.id !== action.idToDelete);
 
       return { ...state, results };
