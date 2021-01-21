@@ -9,8 +9,8 @@ const reducer = (state = initialState, action) => {
     case actionTypes.ADD_PERSON: {      
       const newPerson = {
         id: Date.now(), // not really unique but good enough here!
-        name: action.name,
-        age: action.age 
+        name: action.personData.name,
+        age: action.personData.age 
       }
 
       return { 
