@@ -1,25 +1,33 @@
 import * as actionTypes from './actions';
 
 const initialState = {
-  persons: []
+  counter: 0,
+  results: []
 };
 
 const reducer = (state = initialState, action) => {
   switch(action.type){
-    case actionTypes.ADD_PERSON: {      
-      const newPerson = {
-        id: Date.now(), // not really unique but good enough here!
-        name: action.personData.name,
-        age: action.personData.age 
-      }
-
+    case actionTypes.INCREMENT:
+      return { ...state, counter: state.counter + 1 };
+    case actionTypes.DECREMENT:
+      return { ...state, counter: state.counter - 1 };
+    case actionTypes.ADD:
+      return { ...state, counter: state.counter + action.val };
+    case actionTypes.SUBTRACT:
+      return { ...state, counter: state.counter - action.val };
+    case actionTypes.STORE_RESULT: {
+      // I personally do not find 'new Date()' to be a very good identifier given the possibility of duplicate keys,
+      // but I am just following along with the course. 
+      // Update in lecture 264: I'm going to use Date.now() since a bit more precise
       return { 
         ...state, 
-        persons: state.persons.concat(newPerson) 
+        results: state.results.concat({ id: Date.now(), value: state.counter }) 
       };
     }
-    case actionTypes.DELETE_PERSON: {
-      return { ...state, persons:  state.persons.filter(cur => cur.id !== action.idToDelete) };
+    case actionTypes.DELETE_RESULT: {
+      let results = state.results.filter(cur => cur.id !== action.idToDelete);
+
+      return { ...state, results };
     }
     default:
   }
