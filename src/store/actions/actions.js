@@ -27,13 +27,13 @@ export const subtract = (payload) => {
     ...payload
   };
 }
-export const store_result = (payload) => {
+export const storeResult = (payload) => {
   return {
     type: STORE_RESULT,
     ...payload
   };
 }
-export const delete_result = (payload) => {
+export const deleteResult = (payload) => {
   return {
     type: DELETE_RESULT,
     ...payload
