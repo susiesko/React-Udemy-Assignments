@@ -10,15 +10,15 @@ export const decrement = () => {
     type: actionTypes.DECREMENT
   };
 }
-export const add = (payload) => {
+export const add = (val) => {
   return {
     type: actionTypes.ADD,
-    ...payload
+    val
   };
 }
-export const subtract = (payload) => {
+export const subtract = (val) => {
   return {
     type: actionTypes.SUBTRACT,
-    ...payload
+    val
   };
 }

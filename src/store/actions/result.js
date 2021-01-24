@@ -1,23 +1,24 @@
 import * as actionTypes from './actionTypes';
 
-export const saveResult = res => {  
+export const saveResult = result => {  
   return {
     type: actionTypes.STORE_RESULT,
-    ...res
+    result
   };
 }
 
-export const storeResult = (payload) => {
-  return dispatch => {
+export const storeResult = (res) => {
+  return (dispatch, getState) => {
     // simulate reaching out to server
     setTimeout(() => {
-      dispatch(saveResult(payload));
+      const oldCounter = getState().counter;
+      dispatch(saveResult(res));
     }, 2000)
   };
 }
-export const deleteResult = (payload) => {
+export const deleteResult = (idToDelete) => {
   return {
     type: actionTypes.DELETE_RESULT,
-    ...payload
+    idToDelete
   };
 }
