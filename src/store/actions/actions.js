@@ -27,10 +27,20 @@ export const subtract = (payload) => {
     ...payload
   };
 }
-export const storeResult = (payload) => {
+
+export const saveResult = res => {
   return {
     type: STORE_RESULT,
-    ...payload
+    ...res
+  };
+}
+
+export const storeResult = (payload) => {
+  return dispatch => {
+    // simulate reaching out to server
+    setTimeout(() => {
+      dispatch(saveResult(payload));
+    }, 2000)
   };
 }
 export const deleteResult = (payload) => {
