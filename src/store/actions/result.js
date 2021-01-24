@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 
-export const saveResult = res => {
+export const saveResult = res => {  
   return {
     type: actionTypes.STORE_RESULT,
     ...res
