@@ -13,12 +13,12 @@ export const decrement = () => {
 export const add = (val) => {
   return {
     type: actionTypes.ADD,
-    val
+    val: val
   };
 }
 export const subtract = (val) => {
   return {
     type: actionTypes.SUBTRACT,
-    val
+    val: val
   };
 }

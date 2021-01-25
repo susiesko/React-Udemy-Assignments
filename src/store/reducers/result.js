@@ -1,4 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
+import { updateObject } from '../utility';
 
 const initialState = {
   results: []
@@ -10,15 +11,14 @@ const reducer = (state = initialState, action) => {
       // I personally do not find 'new Date()' to be a very good identifier given the possibility of duplicate keys,
       // but I am just following along with the course. 
       // Update in lecture 264: I'm going to use Date.now() since a bit more precise
-      return { 
-        ...state, 
-        results: state.results.concat({ id: Date.now(), value: action.result }) 
-      };
+      let results = state.results.concat({ id: Date.now(), value: action.result });
+      
+      return updateObject(state, { results } );
     }
     case actionTypes.DELETE_RESULT: {      
       let results = state.results.filter(cur => cur.id !== action.idToDelete);
 
-      return { ...state, results };
+      return updateObject(state, { results });
     }
     default:
   }
